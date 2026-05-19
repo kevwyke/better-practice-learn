@@ -56,19 +56,24 @@ const GUIDES = [
   {
     id: "feedback-that-lands",
     title: "Giving feedback that lands",
-    description: "A practical framework for giving feedback that practitioners will actually hear, engage with, and use.",
+    description: "Most of us give far less feedback than we should — and when we do, we focus almost entirely on what to improve. This guide is about giving more feedback, not just better feedback — including the strengths-based kind that tells people what to keep doing.",
     audience: "sme",
-    duration: "7 min",
+    duration: "8 min",
     status: "ready",
     steps: [
       {
+        label: "The feedback we're not giving",
+        body: "Here's something worth saying plainly: most of us don't give enough feedback. Not developmental feedback — feedback, full stop.\n\nWe hold back the positive because we worry about it feeling hollow, or embarrassing someone, or coming across as over the top. And when we do give positive feedback, the person receiving it often bats it away — too uncomfortable to sit with it properly.\n\nBut think about what that costs. If someone doesn't know specifically what they're doing well, they can't do more of it deliberately. They can't build on their strengths. They can't walk into a PACT visit with a clear sense of themselves as a capable practitioner.\n\nThe missing half of feedback culture isn't more constructive criticism. It's more positive, specific, strengths-based feedback — given regularly, and received without deflection.",
+        prompt: "When did you last tell someone specifically what they were doing well — not as a preamble to something else, but as the whole point?",
+      },
+      {
         label: "Start with safety",
-        body: "Feedback lands when the person receiving it feels safe enough to hear it. Before you say anything substantive, the practitioner needs to feel: 'This person is on my side. They want me to succeed.' That's not soft — it's neuroscience. When people feel threatened, the brain shifts into self-protection mode and stops learning. When they feel safe, it stays open.\n\nThis means the relationship matters as much as the content. Take a moment before you begin: make your positive intent visible. Not as a formula — as a genuine act.",
+        body: "Feedback lands when the person receiving it feels safe enough to hear it. Before you say anything substantive, the practitioner needs to feel: 'This person is on my side. They want me to succeed.' That's not soft — it's neuroscience. When people feel threatened, the brain shifts into self-protection mode and stops learning. When they feel safe, it stays open.\n\nThis matters as much for positive feedback as developmental. Someone who doesn't trust the relationship won't believe a genuine compliment — they'll be waiting for the 'but.' Take a moment before you begin: make your positive intent visible. Not as a formula — as a genuine act.",
         prompt: "Think about a piece of feedback you've received that really stuck with you. What made it possible to hear it?",
       },
       {
         label: "What you saw, not what you think",
-        body: "The most useful feedback describes behaviour you actually observed — not your interpretation of it. 'You rushed through the explanation of the test results' is observable. 'You seemed anxious about the family' is an interpretation. The first opens a conversation; the second can feel like a verdict.\n\nThe SBI frame helps: Situation (what was happening), Behaviour (what you observed), Impact (what it led to). Keep it specific. Keep it in the room. The more specific you are, the easier it is for the practitioner to do something with it.",
+        body: "The most useful feedback describes behaviour you actually observed — not your interpretation of it. 'You rushed through the explanation of the test results' is observable. 'You seemed anxious about the family' is an interpretation. The first opens a conversation; the second can feel like a verdict.\n\nThe SBI frame helps: Situation (what was happening), Behaviour (what you observed), Impact (what it led to). Keep it specific. Keep it in the room.\n\nAnd this applies equally to positive feedback. 'You're great with families' is too vague to be useful. 'The way you paused after you shared the results and asked if they had questions — that gave the family space to process, and you could see it land' is something a practitioner will remember and repeat.",
         prompt: "In your last feedback conversation, did you describe what you saw — or what you thought it meant?",
       },
       {
@@ -77,16 +82,23 @@ const GUIDES = [
         prompt: "What would you have found out if you'd asked first in your most recent assessment conversation?",
       },
       {
-        label: "One thing, made actionable",
-        body: "The feedback that changes practice is specific and next-step-able. 'You could improve your communication with families' is too broad to act on. 'Next time you're sharing a complex result, try pausing after you've explained it and asking: What questions do you have?' is something a practitioner can do tomorrow.\n\nOne actionable suggestion per conversation. More than that and the energy dissipates — nothing changes. The goal isn't comprehensiveness; it's movement.",
-        prompt: "What's the most specific, actionable piece of feedback you could give to someone you're currently supporting?",
+        label: "One thing — and make it count",
+        body: "The feedback that changes practice is specific and next-step-able. 'You could improve your communication with families' is too broad to act on. 'Next time you share a complex result, try pausing and asking: What questions do you have?' is something a practitioner can do tomorrow.\n\nThe same rule applies to strengths. 'Well done today' disappears. 'The way you brought the child back into the conversation when the parents were getting anxious — keep doing that, it's a real skill' stays.\n\nOne thing per conversation. Whether it's something to build or something to keep building on — one clear, specific observation beats a comprehensive review every time. The goal isn't thoroughness. It's movement.",
+        prompt: "What's the most specific piece of positive feedback you could give someone you're currently supporting — something you've actually observed that they should keep doing?",
       },
     ],
-    tryThis: "Before your next feedback conversation, write down three things you actually observed — not interpreted, observed. Start with the strongest. Then ask the practitioner what they noticed before you offer anything.",
+    tryThis: "Before your next feedback conversation, write down two things: one thing you specifically observed this person doing well, and one thing that would move their practice forward. Lead with the strength — not as a warm-up, but because it matters equally. Make both specific enough that they couldn't apply to anyone else.",
     video: {
       title: "Giving feedback that lands",
       description: "A short film to accompany this guide — watching it alongside is optional but recommended.",
     },
+    resources: [
+      { title: "The gift of feedback", type: "Article", url: "https://hayleyleverblog.wordpress.com/2023/02/02/the-gift-of-feedback/", note: "Sets the right tone — feedback as something we offer each other, not something done to us." },
+      { title: "The joy of feedback", type: "Talk", url: "https://youtu.be/h4zNEl7XgXI?si=r5eFbEgkOBVfi-Si", note: "TED talk on why feedback matters — worth 15 minutes of anyone's time." },
+      { title: "Common models for effective feedback in clinical education", type: "Paper", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9842479/", note: "Orsini et al (2022) — overview of Pendleton, CEDAR, and other frameworks for clinical educators." },
+      { title: "NHS Healthcare Leadership Model", type: "Tool", url: "https://www.leadershipacademy.nhs.uk/healthcare-leadership-model/", note: "Free self-assessment and affordable 360 — structured feedback for NHS contexts." },
+      { title: "Feedback in clinical education", type: "Resource", url: "https://www.nes.scot.nhs.uk/media/5pvmbhy3/nesd1240_unit_4_v3.pdf", note: "Comprehensive NHS Education for Scotland resource with models and practical tools." },
+    ],
   },
 
   {
@@ -382,6 +394,20 @@ function GuideViewer({ guide, onBack }) {
               <div style={s.doneCardLabel}>Your try this</div>
               <p style={s.doneCardText}>{guide.tryThis}</p>
             </div>
+            {guide.resources && (
+              <div style={s.resourcesBox}>
+                <div style={s.resourcesLabel}>Go further</div>
+                {guide.resources.map((r, i) => (
+                  <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" style={s.resourceItem}>
+                    <span style={s.resourceType}>{r.type}</span>
+                    <div style={s.resourceContent}>
+                      <div style={s.resourceTitle}>{r.title}</div>
+                      <div style={s.resourceNote}>{r.note}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
             <button style={s.primaryBtn} onClick={onBack}>← Back to guides</button>
           </div>
         </main>
@@ -595,6 +621,14 @@ const s = {
   doneCard: { background: "var(--surface)", border: "1px solid var(--rule)", borderRadius: "var(--r-card)", padding: "18px 20px", display: "flex", flexDirection: "column", gap: 8, maxWidth: 480, width: "100%", textAlign: "left" },
   doneCardLabel: { fontSize: 10, fontWeight: 500, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "var(--caps)", fontFamily: "var(--mono)" },
   doneCardText: { fontSize: 14, color: "var(--ink)", lineHeight: 1.7, margin: 0 },
+
+  resourcesBox: { display: "flex", flexDirection: "column", gap: 8, maxWidth: 480, width: "100%", textAlign: "left" },
+  resourcesLabel: { fontSize: 10, fontWeight: 500, color: "var(--ink-80)", textTransform: "uppercase", letterSpacing: "var(--caps)", fontFamily: "var(--mono)", marginBottom: 2 },
+  resourceItem: { display: "flex", gap: 10, padding: "12px 14px", background: "var(--surface)", border: "1px solid var(--rule)", borderRadius: "var(--r-ctl)", textDecoration: "none", alignItems: "flex-start" },
+  resourceType: { fontSize: 10, fontWeight: 500, fontFamily: "var(--mono)", color: "var(--ink-80)", background: "var(--surface-2)", border: "1px solid var(--rule)", borderRadius: 8, padding: "2px 7px", whiteSpace: "nowrap", marginTop: 2, flexShrink: 0 },
+  resourceContent: { display: "flex", flexDirection: "column", gap: 3 },
+  resourceTitle: { fontSize: 13, fontWeight: 600, color: "var(--accent)", letterSpacing: "var(--tight)" },
+  resourceNote: { fontSize: 12, color: "var(--ink-80)", lineHeight: 1.5 },
 
   primaryBtn: { background: "var(--accent)", color: "var(--accent-ink)", border: "none", borderRadius: "var(--r-ctl)", padding: "11px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", minHeight: 44, letterSpacing: "-0.01em" },
   ghostBtn: { background: "none", border: "1px solid var(--rule)", borderRadius: "var(--r-ctl)", padding: "10px 16px", fontSize: 13, fontWeight: 500, color: "var(--ink-80)", cursor: "pointer", minHeight: 44 },
