@@ -259,6 +259,25 @@ const GUIDES = [
   },
 ];
 
+// ── Resources data ────────────────────────────────────────────────────────────
+
+const RESOURCES = [
+  { id: "obs-framework",     title: "Observation framework",          type: "PDF",      desc: "The structured observation record used by L&D Partners during a PACT visit." },
+  { id: "feedback-template", title: "Feedback summary template",      type: "Word",     desc: "A fillable template for structuring post-visit feedback to the service." },
+  { id: "dev-plan",          title: "Development plan template",      type: "Word",     desc: "For services to document agreed development priorities and next steps after a visit." },
+  { id: "reflect-sheets",    title: "Reflective practice worksheets", type: "PDF",      desc: "One worksheet per supported model — ERA, Driscoll, Kolb, Gibbs, Johns." },
+  { id: "self-assess",       title: "Pre-visit self-assessment",      type: "Template", desc: "Helps services identify strengths and focus areas before a visit." },
+  { id: "faq-review",        title: "Capability review FAQ",          type: "PDF",      desc: "Answers to the most common questions about what a PACT visit involves." },
+];
+
+// ── Interactive data ──────────────────────────────────────────────────────────
+
+const INTERACTIVE = [
+  { id: "real-talk",    title: "Conversation practice",       provider: "Real Talk Studio", desc: "AI-powered scenario simulations for practising assessment conversations — a safe space to try things before they matter." },
+  { id: "readiness",    title: "Pre-visit readiness check",   provider: "Interactive tool", desc: "A structured self-assessment to help your service prepare — identifies strengths and focus areas before a visit." },
+  { id: "model-match",  title: "Find your reflective model",  provider: "Guided selector",  desc: "Answer a few questions about your situation and get a recommendation for which reflective framework fits it best." },
+];
+
 // ── App ───────────────────────────────────────────────────────────────────────
 
 export default function App() {
@@ -314,6 +333,11 @@ export default function App() {
               </div>
             </div>
           )}
+
+          <div style={s.sectionDivider} />
+          <ResourceCentre />
+          <VideoLibrary />
+          <InteractiveTools />
         </div>
       </main>
     </div>
@@ -527,6 +551,103 @@ function GuideViewer({ guide, onBack }) {
   );
 }
 
+// ── Section heading ───────────────────────────────────────────────────────────
+
+function SectionHead({ label, subtitle }) {
+  return (
+    <div style={s.sectionHead}>
+      <div style={s.sectionLabel}>{label}</div>
+      {subtitle && <div style={s.sectionSub}>{subtitle}</div>}
+    </div>
+  );
+}
+
+// ── Resource centre ───────────────────────────────────────────────────────────
+
+function ResourceCentre() {
+  return (
+    <div style={s.newSection}>
+      <SectionHead
+        label="Resources"
+        subtitle="Assessment tools, templates, and reference materials"
+      />
+      <div style={s.resourceGrid}>
+        {RESOURCES.map(r => (
+          <div key={r.id} style={s.resourceCard}>
+            <div style={s.resourceCardMeta}>
+              <span style={s.resourceTypeTag}>{r.type}</span>
+              <span style={s.soonTag}>Coming soon</span>
+            </div>
+            <div style={s.resourceCardTitle}>{r.title}</div>
+            <div style={s.resourceCardDesc}>{r.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Video library ─────────────────────────────────────────────────────────────
+
+function VideoLibrary() {
+  const videos = GUIDES.filter(g => g.video);
+  return (
+    <div style={s.newSection}>
+      <SectionHead
+        label="Videos"
+        subtitle="Short films to accompany the guides — watch on their own or alongside"
+      />
+      <div style={s.videoLibGrid}>
+        {videos.map(g => {
+          const ac = AUDIENCE_STYLE[g.audience];
+          return (
+            <div key={g.id} style={s.videoLibCard}>
+              <div style={s.videoLibThumb}>
+                <span style={s.videoLibPlay}>▶</span>
+              </div>
+              <div style={s.videoLibInfo}>
+                <div style={s.videoLibMeta}>
+                  <span style={{ ...s.audTag, background: ac.bg, color: ac.text, borderColor: ac.border }}>
+                    {AUDIENCE_LABEL[g.audience]}
+                  </span>
+                  <span style={s.soonTag}>Coming soon</span>
+                </div>
+                <div style={s.videoLibTitle}>{g.video.title}</div>
+                <div style={s.videoLibDesc}>{g.video.description}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── Interactive tools ─────────────────────────────────────────────────────────
+
+function InteractiveTools() {
+  return (
+    <div style={s.newSection}>
+      <SectionHead
+        label="Practice tools"
+        subtitle="Structured exercises and conversation simulations for deeper learning"
+      />
+      <div style={s.guideGrid}>
+        {INTERACTIVE.map(item => (
+          <div key={item.id} style={{ ...s.card, ...s.cardSoon }}>
+            <div style={s.cardMeta}>
+              <span style={s.interactiveTag}>{item.provider}</span>
+              <span style={s.soonTag}>Coming soon</span>
+            </div>
+            <div style={s.cardTitle}>{item.title}</div>
+            <div style={s.cardDesc}>{item.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ── Styles ────────────────────────────────────────────────────────────────────
 
 const s = {
@@ -632,4 +753,34 @@ const s = {
 
   primaryBtn: { background: "var(--accent)", color: "var(--accent-ink)", border: "none", borderRadius: "var(--r-ctl)", padding: "11px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", minHeight: 44, letterSpacing: "-0.01em" },
   ghostBtn: { background: "none", border: "1px solid var(--rule)", borderRadius: "var(--r-ctl)", padding: "10px 16px", fontSize: 13, fontWeight: 500, color: "var(--ink-80)", cursor: "pointer", minHeight: 44 },
+
+  // Section divider
+  sectionDivider: { height: 1, background: "var(--rule)", margin: "4px 0" },
+
+  // Section headings
+  newSection: { display: "flex", flexDirection: "column", gap: 12 },
+  sectionHead: { display: "flex", flexDirection: "column", gap: 3 },
+  sectionLabel: { fontSize: 13, fontWeight: 600, color: "var(--ink)", letterSpacing: "var(--tight)" },
+  sectionSub: { fontSize: 13, color: "var(--ink-80)", lineHeight: 1.5 },
+
+  // Resource cards
+  resourceGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 10 },
+  resourceCard: { background: "var(--surface)", border: "1px solid var(--rule)", borderRadius: "var(--r-card)", padding: "16px 18px", display: "flex", flexDirection: "column", gap: 8, opacity: 0.6 },
+  resourceCardMeta: { display: "flex", alignItems: "center", gap: 7 },
+  resourceTypeTag: { borderRadius: 10, padding: "2px 9px", fontSize: 11, fontWeight: 500, fontFamily: "var(--mono)", background: "var(--surface-2)", color: "var(--ink-80)", border: "1px solid var(--rule)" },
+  resourceCardTitle: { fontSize: 14, fontWeight: 600, color: "var(--ink)", letterSpacing: "var(--tight)", lineHeight: 1.3 },
+  resourceCardDesc: { fontSize: 12, color: "var(--ink-80)", lineHeight: 1.55 },
+
+  // Video library
+  videoLibGrid: { display: "flex", flexDirection: "column", gap: 8 },
+  videoLibCard: { background: "var(--surface)", border: "1px solid var(--rule)", borderRadius: "var(--r-card)", padding: "16px 18px", display: "flex", gap: 16, alignItems: "flex-start", opacity: 0.7 },
+  videoLibThumb: { width: 56, height: 56, borderRadius: "var(--r-ctl)", background: "var(--surface-2)", border: "1px dashed var(--rule)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
+  videoLibPlay: { fontSize: 16, color: "var(--ink-80)" },
+  videoLibInfo: { flex: 1, display: "flex", flexDirection: "column", gap: 6 },
+  videoLibMeta: { display: "flex", alignItems: "center", gap: 7 },
+  videoLibTitle: { fontSize: 14, fontWeight: 600, color: "var(--ink)", letterSpacing: "var(--tight)", lineHeight: 1.3 },
+  videoLibDesc: { fontSize: 12, color: "var(--ink-80)", lineHeight: 1.55 },
+
+  // Interactive tag
+  interactiveTag: { borderRadius: 10, padding: "2px 9px", fontSize: 11, fontWeight: 500, fontFamily: "var(--mono)", background: "rgba(110,74,107,0.09)", color: "#6E4A6B", border: "1px solid rgba(110,74,107,0.22)" },
 };
